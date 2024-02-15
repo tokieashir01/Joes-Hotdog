@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe's Hotdog Stand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="logo" class="logoClass">
+        <img src="logo.jpg" alt="Joe's Hotdog">
+    </div>
+
+    <p class="welcome"> Welcome to Joe's Hotdog Stand! <br>
+        Here is your Order
+    </p>
+    
+    <div>
+        <script>
+
+            // Product Prices stored in Constants
+            const hotdog = 4.65;
+            const fries = 3.75;
+            const drinks = 1.89;
+
+            var numDogs = prompt("How many hotdogs do you want?", "");
+            var numFries = prompt("How many fries do you want?", "");
+            var numSoda = prompt("How many sodas do you want?", "");
+
+            var price = null;
+
+            function showMoney(price) {
+                // Round the number to two decimal places
+                var roundedNumber = Math.round(price * 100) / 100;
+                var stringPrice = roundedNumber.toString();
+
+                // Add trailing zeros
+                if (!stringPrice.includes('.')) {
+                    stringPrice += '.00';
+                } else {
+                    let decimalIndex = stringPrice.indexOf('.');
+                    let decimalPart = stringPrice.substring(decimalIndex + 1);
+                if (decimalPart.length === 1) {
+                    stringPrice += '0';
+                    }
+                }
+
+                return stringPrice;
+            }
+
+            var subtotal = (numDogs * hotdog) + (numFries * fries) + (numSoda * drinks);
+            var totalBeforeDiscount = subtotal;
+            var discount = 0;
+            var taxAmount = 0;
+            var beforeDiscount = subtotal;
+            var afterDisc = 0;
+
+            // Apply Discount
+            if (subtotal >= 25) {
+                discount = subtotal * 0.1;
+                subtotal = subtotal * 0.9;
+                afterDisc = subtotal;
+                taxAmount = subtotal * 0.0625;
+            }
+            else {
+                taxAmount = subtotal * 0.0625;
+                subtotal = subtotal * 1.0625;
+            }
+
+            document.write("<div class='receipt'>")
+
+            // Item List
+            document.write("<div class='Items'> <ul> <li> Item </li> <hr> <li> HotDogs </li>")
+            document.write("<li> Fries </li> <li> Drinks </li> <li> &nbsp</li>")
+            document.write("<li> Subtotal(Before Discount) </li>")
+            document.write("<li> Discount(10%) </li> <li> Subtotal(After Discount) </li>")
+            document.write("<li> Tax(6.25%) </li> <br>")
+            document.write("<li id='total'> Total </li>")
+            document.write("</ul> </div>")
+
+            // Quantity
+            document.write("<div class='quantity'> <ul> <li> Quantity </li> <hr>")
+            document.write(numDogs + "<br>" + numFries + "<br>")
+            document.write(numSoda + "<br>" + "&nbsp </div>")
+        
+            // Price
+            document.write("<div class='Pricing'> <ul> <li> Price </li> <hr>")
+            document.write("$" + showMoney(numDogs*hotdog) + "<br>")
+            document.write("$" + showMoney(numFries*fries) + "<br>")
+            document.write("$" + showMoney(numSoda*drinks) + "<br> ------- <br>")
+            document.write("$" + showMoney(beforeDiscount) + "<br>")
+            document.write("$" + showMoney(discount) + "<br>")
+            document.write("$" + showMoney(afterDisc) + "<br>")
+            document.write("$" + showMoney(taxAmount) + "<br> <br>")
+            document.write("$" + showMoney(subtotal) + "<br>")
+            document.write( "</div>")
+
+            document.write("</div>")
+
+        </script>
+    </div>
+    
+    
+</body>
+</html>

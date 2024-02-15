@@ -1,0 +1,67 @@
+body {
+    background-color: antiquewhite;
+    font-size: 40px;
+    font-weight: 300px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}   
+
+#logo img {
+    width: auto;
+    position: center;
+    height: 160px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.welcome{
+    text-align: center;
+    width: 100%;
+}
+
+.Items {
+    width: 500px;
+    display: grid;
+    margin-left: 16%;
+    position: absolute;
+    background-color: azure;
+}
+
+.quantity {
+    width: 400px;
+    margin-left: 40%;
+    
+    display: grid;
+    position: absolute;
+    text-align: center;
+    background-color: azure;
+    padding-bottom: 174px;
+}
+
+.Pricing {
+    width: 200px;
+    margin-left: 60%;
+    padding-right: 40px;
+    display: grid;
+    position: absolute;
+    background-color: azure;
+}
+
+.receipt {
+    width: 100%;
+    position: center;
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 25px;
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#total {
+    font-weight: bold;
+}
